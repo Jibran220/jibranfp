@@ -100,7 +100,7 @@ const Singlepost = ({ currentId, setCurrentId }) => {
     },[]);
     const getproductdetail=async()=>{
         console.warn(params)
-        let result=await fetch (`http://localhost:5006/products/${params.id}`)
+        let result=await fetch (`http://localhost:5005/products/${params.id}`)
 
         result =await result.json()
         console.warn(result)

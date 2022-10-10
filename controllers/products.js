@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import products from "../models/products.js"
+import csvtojson from 'csvtojson'
 
 
 export const getProducts = async (req, res) => {
@@ -11,6 +12,41 @@ export const getProducts = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 }
+
+export const addd = async (req, res) => {
+
+        const postMessages = req.body
+        console.warn (postMessages)
+
+     
+}
+
+
+export const createexcel = async (req, res) => {
+    csvtojson()
+    const productpost = req.body;
+    const newproductpost = new products(productpost)
+    .fromFile(productpost)
+    .then(csvData=>{
+        console.log(csvData)
+        products.insertMany(csvData).then(function () 
+        {
+            console.log('Dta is inserted')
+            res.json({success:'success'})
+
+            
+        }).catch(function (error) 
+        {
+            console.log(error)
+            
+        })
+    })
+}
+
+
+
+
+
 export const getProduct = async (req, res) => {
 
     let result = await products.findOne({ _id: req.params.id })

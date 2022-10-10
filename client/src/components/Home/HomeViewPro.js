@@ -8,9 +8,9 @@ import Form from '../Form/Form';
 import FormWizard from '../Form/FormWizard';
 
 
-import { bindActionCreators } from "redux"
+import {bindActionCreators} from "redux"
 
-import { Button } from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 //header
 import Header from '../../Header'
 //subheader
@@ -27,7 +27,8 @@ import Loader from '../../components/Home/Loader'
 
 // store
 // import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode, getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../store/setting/setting'
-import { connect } from "react-redux"
+import {connect} from "react-redux"
+import Singlepost from '../Posts/Post/Singlepost';
 
 const Home = (props) => {
     const mapStateToProps = (state) => {
@@ -56,7 +57,7 @@ const Home = (props) => {
             dispatch
         )
     })
-
+    
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
 
@@ -68,10 +69,10 @@ const Home = (props) => {
         dispatch(getProducts());
         //   darkmode
         const colorMode = sessionStorage.getItem('color-mode');
-        if (colorMode === null) {
+        if(colorMode===null){
             // props.ModeAction(props.darkMode);
         }
-        else {
+        else{
             // props.ModeAction(colorMode);
         }
 
@@ -79,39 +80,39 @@ const Home = (props) => {
         const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
         const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
         const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
-        if (colorcustomizerMode === null) {
+        if(colorcustomizerMode===null){
             // props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
-            document.documentElement.style.setProperty('--bs-info', props.cololrinfomode);
+            document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
         }
-        else {
+        else{
             // props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
             document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
         }
 
         // rtlmode
         const rtlMode = sessionStorage.getItem('rtl-mode');
-        if (rtlMode === null) {
+        if(rtlMode===null){
             // props.SchemeDirAction(props.schemeDirMode)
         }
-        else {
+        else{
             // props.SchemeDirAction(rtlMode);
-        }
-    }, [currentId, dispatch]);
-
+        }   
+        }, [currentId, dispatch]);
+    
 
     return (
 
 
         <>
-            <Loader />
-            <Sidebar />
+        <Loader/>
+        <Sidebar />
             <main className="main-content">
                 <div className="position-relative">
                     <Header />
                     <SubHeader />
                 </div>
                 <div className="py-0 conatiner-fluid content-inner mt-n5">
-                    <FormWizard currentId={currentId} setCurrentId={setCurrentId} />
+                <Singlepost currentId={currentId} setCurrentId={setCurrentId} />
 
                 </div>
                 <div className="btn-download">
@@ -123,13 +124,13 @@ const Home = (props) => {
                         <span>Download</span>
                     </Button> */}
                 </div>
-                <Footer />
+                    <Footer />
             </main>
-            {/* <SettingOffcanvas  /> */}
-        </>
+        {/* <SettingOffcanvas  /> */}
+    </>
 
 
-
+     
     );
 };
 

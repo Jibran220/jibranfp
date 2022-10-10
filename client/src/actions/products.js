@@ -18,7 +18,16 @@ export const createProducts = (post) => async (dispatch) => {
 
         dispatch({ type: CREATE, payload: data });
     } catch (error) {
-        console.log(error);
+        console.log("the erooooooooooooooooooor");
+    }
+};
+export const createexcel = (post) => async (dispatch) => {
+    try {
+        const { data } = await api.createProducts(post);
+
+        dispatch({ type: CREATE, payload: data });
+    } catch (error) {
+        console.log("the eroooooor excel");
     }
 };
 
