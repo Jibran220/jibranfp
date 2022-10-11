@@ -12,11 +12,13 @@ import "./assets/scss/rtl.scss"
 import "./assets/scss/custom.scss"
 import "./assets/scss/customizer.scss"
 import Home1 from './components/Home/Home1';
+import Homev from './SidebarforVendor/Home/Home';
 import HomeComplaince from './components/Home/HomeComplaince';
 import Homecomplaince1 from './components/Home/Homecomplaince1';
 import Homerfqmanager from './components/Home/Homerfqmanager';
 import Homerfqmanager1 from './components/Home/Homerfqmanager1';
 import Auth from './components/Auth/Auth';
+import Authv from './components/Authv/Authv';
 import UpdatePost from './components/Posts/Post/UpdatePost';
 import Singlepost from './components/Posts/Post/Singlepost';
 import Form from './components/Form/Form';
@@ -46,6 +48,8 @@ import HomeUpdatePro from './components/Home/HomeUpdatePro';
 import HomeforHome from './components/Home/HomeforHome';
 import HomeViewPro from './components/Home/HomeViewPro';
 import FormWizard from './components/Form/FormWizard';
+import RFQForm from './components/Form/RFQForm';
+
 
 function App1() {
     return (
@@ -68,9 +72,13 @@ function App1() {
                     <Route path="/homerfqmanager" exact element={<RFQ_Managers />} />
                     <Route path="/homerfqmanager1" exact element={<RFQ_Manager />} />
                     <Route path="/auth" exact element={<Auth />} />
+                    <Route path="/authv" exact element={<Authv />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
+                    <Route path="/rfqform" exact element={<Homerfqmanager />} />
+                    <Route path="/Homev" exact element={<Homev />} />
                     {/* <Route path="/dash" exact element={<Dash />} /> */}
+
                 </Routes>
             </BrowserRouter>
 

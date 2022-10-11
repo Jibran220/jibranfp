@@ -2,35 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
-import { getProducts } from '../../actions/products';
-import Posts from '../Posts/Posts';
-import Form from '../Form/Form';
-import FormWizard from '../Form/FormWizard';
-import RFQForm from '../Form/RFQForm';
+// import { getProducts } from '../../actions/products';
+// import Posts from '../Posts/Posts';
+// import Form from '../Form/Form';
+// import FormWizard from '../Form/FormWizard';
+import Chat from '../Components/Chat/Chat'
 
 
 import { bindActionCreators } from "redux"
 
 import { Button } from 'react-bootstrap'
 //header
-import Header from '../../Header'
+import Header from '../Header'
 //subheader
-import SubHeader from '../../SubHeader'
+import SubHeader from '../SubHeader'
 //sidebar
-import Sidebar from '../../Sidebar'
+import Sidebar from '../Sidebar'
 //footer
-import Footer from '../../Footer'
+import Footer from '../Footer'
 //default 
 // import DefaultRouter from '../../router/default-router'
 
 // import SettingOffcanvas from '../../components/Home/SettingOffcanvas'
-import Loader from '../../components/Home/Loader'
+import Loader from '../Loader'
 
 // store
 // import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode, getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../store/setting/setting'
 import { connect } from "react-redux"
 
-const Homerfqmanager = (props) => {
+const Home = (props) => {
     const mapStateToProps = (state) => {
         return {
             // darkMode: getDarkMode(state),
@@ -66,7 +66,7 @@ const Homerfqmanager = (props) => {
     // }, [currentId, dispatch]);
 
     useEffect(() => {
-        dispatch(getProducts());
+
         //   darkmode
         const colorMode = sessionStorage.getItem('color-mode');
         if (colorMode === null) {
@@ -112,7 +112,7 @@ const Homerfqmanager = (props) => {
                     <SubHeader />
                 </div>
                 <div className="py-0 conatiner-fluid content-inner mt-n5">
-                    <RFQForm currentId={currentId} setCurrentId={setCurrentId} />
+                    <Chat currentId={currentId} setCurrentId={setCurrentId} />
 
                 </div>
                 <div className="btn-download">
@@ -134,4 +134,4 @@ const Homerfqmanager = (props) => {
     );
 };
 
-export default Homerfqmanager;
+export default Home;

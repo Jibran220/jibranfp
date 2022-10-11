@@ -8,6 +8,7 @@ import dotenv from 'dotenv'
 
 import postRoutes from './routes/products.js';
 import userRouter from "./routes/user.js";
+import uservRouter from "./routes/userv.js";
 import ComplainceRouter from "./routes/Complaince.js";
 import rfqRouter from "./routes/RFQ_Manager.js";
 
@@ -30,9 +31,10 @@ app.use(cors());
 
 app.use('/products', postRoutes);
 app.use('/complaince', ComplainceRouter);
-app.use('/rfqmanager', rfqRouter);
+app.use('/rfqmanagers', rfqRouter);
 
 app.use("/user", userRouter);
+app.use("/userv", uservRouter);
 // app.get('/', (req, res) => res.status(200).send('Hello world'))
 app.get('/favicon.ico', (req, res) => res.status(200).send('Hello favicon'))
 
